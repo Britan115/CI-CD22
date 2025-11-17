@@ -2,7 +2,8 @@
 
 FROM node:18-alpine AS build
 WORKDIR /app
-ENV NODE_ENV=production
+ENV NODE_ENV=production \
+    NODE_OPTIONS=--openssl-legacy-provider
 COPY package*.json ./
 RUN npm ci
 COPY . .
